@@ -34,4 +34,15 @@ class UserController{
     // Rendu avec layout
     $this->renderView('user/one', $data);
   }
+
+  public function signUp(): void
+  {
+    $userModel = new UserModel();
+    // Prépatation du tableau à envoyer au layout
+    $data = [
+      'title' => 'Sign Up',
+    ];
+ 
+    $this->renderView('user/signUp', $data);
+  }
 }
