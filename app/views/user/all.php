@@ -1,5 +1,6 @@
 <?php 
 echo "utilisateurs : <br>";
 foreach ($users as $user) {
-  echo '<h2>'. $user->getEmail() .'</h2>';
+  echo '<h3>'. $user['name'] . $user['firstname'] .'</h3>';
+  echo '<p>' . $user['email'] . '</p>';
 }

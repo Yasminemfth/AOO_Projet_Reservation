@@ -25,7 +25,6 @@ class UserController{
   {
     $userModel = new UserModel();
     $user = $userModel->findOneById($id);
-    // Prépatation du tableau à envoyer au layout
     $data = [
       'title' => 'Un utilisateur',
       'user' => $user
@@ -35,14 +34,58 @@ class UserController{
     $this->renderView('user/one', $data);
   }
 
-  public function signUp(): void
+    public function logIn(): void
   {
     $userModel = new UserModel();
-    // Prépatation du tableau à envoyer au layout
+    $data = [
+      'title' => 'Log In',
+    ];
+
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+      $this->renderView('user/logIn', $data);
+      return;
+    }
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if (empty($email) || empty($password)) {
+        $this->renderView('user/logIn', $data);
+        return;
+    }
+
+    $userModel->logIn( $email, $password);
+    return;
+  }
+
+    public function signUp(): void
+  {
+    $userModel = new UserModel();
     $data = [
       'title' => 'Sign Up',
+      'error' => ''
     ];
- 
-    $this->renderView('user/signUp', $data);
+
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+      $this->renderView('user/signUp', $data);
+      return;
+    }
+
+    $name = $_POST['name'];
+    $firstname = $_POST['firstname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if (empty($name) || empty($firstname) || empty($email) || empty($password)) {
+      $data['error'] = 'champ vide';
+        $this->renderView('user/signUp', $data);
+        return;
+    }
+
+    $passwordhash = password_hash($password, PASSWORD_DEFAULT);
+
+    $userModel->signUp($name, $firstname, $email, $passwordhash);
+    header('Location: user/login');
+    return;
   }
 }

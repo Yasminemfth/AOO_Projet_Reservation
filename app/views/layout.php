@@ -11,9 +11,11 @@
 </head>
 <body>
     <header>
-        <h1>Mon site MVC</h1>
+        <h1>Reservation Project</h1>
         <nav>
           <a href="/user/findAll">Liste des utilisateurs</a>
+          <a href="/user/signUp">Inscription</a>
+          <a href="/user/logIn">Connexion</a>
         </nav>
     </header>
     
