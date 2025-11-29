@@ -18,6 +18,14 @@
           <a href="/user/signUp">Inscription</a>
           <a href="/user/logIn">Connexion</a>
           <a href="/user/logOut">Deconnexion</a>
+
+        <!-- MENU ACTIVITÉS -->
+            <a href="/activite/findAll">Activités</a>
+
+            <!-- Si admin : lien pour ajouter une activité -->
+            <?php if (!empty($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <a href="/activite/create">Ajouter une activité</a>
+            <?php endif; ?>
         </nav>
         <?php 
         if(isset($_SESSION['name']) && !empty($_SESSION['name'])) {
