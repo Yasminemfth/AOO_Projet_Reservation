@@ -10,9 +10,13 @@ Class ReservationModel extends Bdd {
   public function createReservation(int $userId, int $activityId) : bool
   {
         $now = new DateTime();
-        $query = "INSERT INTO `reservations`(`userId`, `activityId`,`RservationDate`) VALUES ($userId,$activityId,$now)";
-        $reservations = $this->co->prepare($query);
-        $reservations->execute();
+        $now = $now->format('Y-m-d H:i:s');
+        $reservations = $this->co->prepare("INSERT INTO reservations (userId, activityId, ReservationDate) VALUES (:userId, :activityId, :ReservationDate)");
+        $reservations->execute([
+      ':userId' => $userId,
+      ':activityId' => $activityId,
+      ':ReservationDate' => $now
+    ]);
         return True;  
   }
    public function getReservationsByUserId(int $userId) : array

@@ -10,9 +10,9 @@ if (!empty($data['error'])) {
     <fieldset>          
         <!--<legend>Identifiants</legend>-->
         <label for="userId">Identifiant utilisateur</label>
-        <input type="text" id="userId" name="userId">
+        <input type="number" id="userId" name="userId">
         <label for="activityId">Identifiant de L'activité</label>
-        <input type="activityId" id="activityId" name="activityId">
+        <input type="number" id="activityId" name="activityId">
     </fieldset>
     <input type="submit" value="Submit">
 </form>

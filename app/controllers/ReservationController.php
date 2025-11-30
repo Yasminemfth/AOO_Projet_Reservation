@@ -54,7 +54,7 @@ class ReservationController{
         return;
     }
 
-    $reservation = $reservationModel->createReservation( $userID, $activityId);// utilisé la methode create du model
+    $reservation = $reservationModel->createReservation( $userId, $activityId);// utilisé la methode create du model
 
     if ($reservation == false) {// si le résultat de la methode est false alors on envoie un message d'erreur
       $data['error'] = 'userId or activityId incorrect';
