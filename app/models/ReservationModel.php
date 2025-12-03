@@ -19,13 +19,16 @@ Class ReservationModel extends Bdd {
     ]);
         return True;  
   }
-   public function getReservationsByUserId(int $userId) : array
-   {
-      $reservations = $this->co->prepare("SELECT * FROM `reservations` WHERE reservations['userId'] == '$userId'");
-      $stmt->execute();
-      $reservations = $stmt->fetchAll(); 
-      return $reservations;
-   }
+  public function getReservationsByUserId(int $userId) : array
+{
+    $sql = "SELECT * FROM `reservations` WHERE `userId` = $userId";
+    $stmt = $this->co->prepare($sql);
+    $stmt->execute();
+
+    $reservations = $stmt->fetchAll(\PDO::FETCH_ASSOC); 
+    
+    return $reservations;
+}
 
      public function getAllReservations() : array
    {

@@ -1,4 +1,5 @@
 <?php
+
 require_once './app/utils/Render.php';
 require_once './app/models/ReservationModel.php';
 
@@ -29,6 +30,12 @@ class ReservationController{
       'title' => 'Une réservation',
       'reservation' => $reservation
     ];
+
+    $sessionReservation = $reservation[0]; 
+    
+    $_SESSION['userId'] =  $sessionReservation['userId'];
+    $_SESSION['activityId'] =  $sessionReservation['activityId'];
+    $_SESSION['ReservationDate'] =  $sessionReservation['ReservationDate'];
  
     // Rendu avec layout
     $this->renderView('reservation/one', $data);
@@ -62,10 +69,7 @@ class ReservationController{
       return;
     }
 
-    $_SESSION['reservationId'] = $reservation['reservationId'];
-    $_SESSION['userId'] = $reservation['userId'];
-    $_SESSION['activityId'] = $reservation['activityId'];
-    $_SESSION['ReservationDate'] = $reservation['ReservationDate'];
+
    
 
     header('Location: findAll');

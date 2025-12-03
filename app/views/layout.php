@@ -24,7 +24,7 @@
             <a href="/activite/findAll">Liste desActivités</a>
 
         <!-- Lien vers les pages de reservation -->
-            <a href="/reservation/findAll">Liste des Reservations</a>
+            <a href="/reservation/findOneById/<?= htmlspecialchars($_SESSION['id']??1) ?>">Liste des Reservations</a>
             <a href="/reservation/AjouterReservation">Reserver</a>
 
             <!-- Si admin : lien pour ajouter une activité -->
