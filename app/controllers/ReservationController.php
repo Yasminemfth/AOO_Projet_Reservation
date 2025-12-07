@@ -11,6 +11,7 @@ class ReservationController {
     /* affiche toutes les réservations */
     public function findAll(): void
     {
+         $this->requireAdmin();
         $reservationModel = new ReservationModel();
         $reservations = $reservationModel->getAllReservations();
 

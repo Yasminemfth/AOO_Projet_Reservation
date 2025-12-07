@@ -16,7 +16,7 @@ trait Auth {
     public function requireAdmin()
     {
         if (empty($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-            die("Accès interdit : vous n'êtes pas administrateur.");
+            die("Accès interdit ");
         }
     }
 }
