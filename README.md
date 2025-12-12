@@ -17,6 +17,8 @@ NatureQuest est un **système complet de réservation pour un parc d’activité
 - Annulation & gestion des réservations
 - Espace administrateur :
   - ajout / modification / suppression d’activités
+  - accès à toutes les réservations
+  - liste des utilisateurs
 
 ---
 
