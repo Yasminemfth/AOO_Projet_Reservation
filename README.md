@@ -5,7 +5,7 @@ Projet réalisé par :
 - Yasmine Metfah  
 - Lorenzo L'Hostis  
 
-NatureQuest est un **système complet de réservation pour un parc d’activités**, développé en **PHP orienté objet** selon une **architecture MVC (Model / View / Controller)**.
+NatureQuest est un **système complet de réservation pour un parc d’activités**, développé en **PHP orienté objet** selon une **architecture MVC **.
 
 ---
 
